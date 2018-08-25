@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('build') {
-      steps {
-        echo 'building my maven pro'
+      parallel {
+        stage('build') {
+          steps {
+            echo 'building my maven pro'
+          }
+        }
+        stage('print') {
+          steps {
+            echo 'hello anil DevOps'
+          }
+        }
       }
     }
   }
